@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
   const urlParams = new URLSearchParams(window.location.search);
   const name = urlParams.get("name");
   if (!name) {
-    window.location.href = "./landing.html";
+    window.location.href = "./index.html";
   } else {
     document.getElementById("userName").innerHTML = "Hello " + name;
     const socket = io("https://lian-bfit.onrender.com");
