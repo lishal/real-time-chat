@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
     window.location.href = "./landing.html";
   } else {
     document.getElementById("userName").innerHTML = "Hello " + name;
-    const socket = io("http://localhost:4000");
+    const socket = io("https://lian-bfit.onrender.com");
 
     const messageArea = document.querySelector(".message-area");
     function scrollToBottom() {
