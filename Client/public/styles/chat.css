@@ -1,0 +1,74 @@
+.chat-container {
+    width: 90%;
+    height: 90vh;
+    margin: auto;
+    margin-block-start: 10px;
+}
+
+.header {
+    display: flex;
+    margin-block: 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    height: 10vh;
+}
+
+#userName {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.message-area {
+    width: 100%;
+    height: 70vh;
+    overflow-y: auto;
+}
+
+.message {
+    border: 1.5px solid black;
+    padding: 20px;
+    font-size: 20px;
+    margin: 10px;
+    border-radius: 6px;
+}
+
+.left {
+    float: left;
+    clear: both;
+    border-bottom-right-radius: 50px;
+}
+
+.right {
+    float: right;
+    clear: both;
+    border-bottom-left-radius: 50px;
+}
+
+.message-box {
+    display: flex;
+    width: 100%;
+    height: 7vh;
+    padding: 5px;
+    gap: 10px;
+
+}
+
+.messageArea {
+    flex: 5;
+    border: 2px solid black;
+    height: 100%;
+    font-size: 20px;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.sendBtn {
+    flex: 1;
+    height: 100%;
+    background-color: black;
+    border-radius: 10px;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}
