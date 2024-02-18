@@ -26,11 +26,15 @@
 }
 
 .message {
+    display: block;
+    margin: auto;
     border: 1.5px solid black;
     padding: 20px;
     font-size: 20px;
-    margin: 10px;
+    margin-block: 10px;
     border-radius: 6px;
+    width: fit-content;
+
 }
 
 .left {
@@ -43,6 +47,13 @@
     float: right;
     clear: both;
     border-bottom-left-radius: 50px;
+}
+
+.center {
+    clear: both;
+    border-bottom-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+
 }
 
 .message-box {
@@ -63,7 +74,7 @@
     padding: 10px;
 }
 
-.sendBtn {
+#sendBtn {
     flex: 1;
     height: 100%;
     background-color: black;

@@ -24,39 +24,14 @@
             <div id="userName"></div>
         </div>
         <div class="message-area">
-            <div class="message right">
-                You: Hello there!
-            </div>
-            <div class="message left">
-                Annu: Hello Lishal!
-            </div>
-            <div class="message left">
-                Annu: Hello Lishal!
-            </div>
-            <div class="message left">
-                Annu: Hello Lishal!
-            </div>
-            <div class="message left">
-                Annu: Hello Lishal!
-            </div>
-            <div class="message left">
-                Annu: Hello Lishal!
-            </div>
-            <div class="message left">
-                Annu: Hello Lishal!
-            </div>
-            <div class="message right">
-                You: Hello there!
-            </div>
-
         </div>
         <form action="#" class="message-box">
-            <input type="text" class="messageArea">
-            <button type="submit" class="sendBtn">Send</button>
+            <input type="text" class="messageArea" id="message" autocomplete="off">
+            <button type="submit" id="sendBtn">Send</button>
         </form>
-
     </div>
 </body>
-<script src="../scripts/chat.js"></script>
+<script defer src="http://localhost:4000/socket.io/socket.io.js"></script>
+<script defer src="../scripts/chat.js"></script>
 
 </html>

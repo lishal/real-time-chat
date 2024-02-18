@@ -5,5 +5,42 @@ document.addEventListener("DOMContentLoaded", function (e) {
     window.location.href = "./landing.html";
   } else {
     document.getElementById("userName").innerHTML = "Hello " + name;
+    const socket = io("http://localhost:4000");
+
+    const messageArea = document.querySelector(".message-area");
+    function scrollToBottom() {
+      messageArea.scrollTop = messageArea.scrollHeight;
+    }
+    const audio = new Audio("../assets/ting.mp4");
+    const appendMessage = (message, position) => {
+      const newElement = document.createElement("div");
+      newElement.innerHTML = message;
+      newElement.classList.add("message");
+      newElement.classList.add(position);
+      messageArea.append(newElement);
+      if (position == "left" || position == "center") {
+        audio.play();
+      }
+      scrollToBottom();
+    };
+
+    const btnStatus = document.getElementById("sendBtn");
+    btnStatus.addEventListener("click", (e) => {
+      e.preventDefault();
+      const message = document.getElementById("message").value;
+      socket.emit("sendMessage", message);
+      appendMessage(`You: ${message}`, "right");
+      document.getElementById("message").value = "";
+    });
+    socket.on("receiveMessage", (data) => {
+      appendMessage(`${data.name}: ${data.message}`, "left");
+    });
+    socket.emit("newUser", name);
+    socket.on("userJoined", (name) => {
+      appendMessage(`${name} joined the chat!`, "center");
+    });
+    socket.on("disconnectedUser", (name) => {
+      appendMessage(`${name} has left the chat!`, "center");
+    });
   }
 });
