@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
     function scrollToBottom() {
       messageArea.scrollTop = messageArea.scrollHeight;
     }
-    const audio = new Audio("../assets/ting.mp4");
+    const audio = new Audio("./assets/ting.mp4");
     const appendMessage = (message, position) => {
       const newElement = document.createElement("div");
       newElement.innerHTML = message;
