@@ -1,0 +1,14 @@
+.businessContainer {
+    flex: 1;
+    gap: 30px;
+}
+
+.businessLogo {
+    height: 150px;
+    aspect-ratio: 1;
+}
+
+.bussinessSlogan {
+    font-size: 1.7em;
+    text-align: center;
+}
