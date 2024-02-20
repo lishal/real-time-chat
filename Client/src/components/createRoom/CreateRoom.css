@@ -1,0 +1,75 @@
+.createRoom-container {
+    height: 90vh;
+    width: 90%;
+    margin-inline: auto;
+    margin-block: 1%;
+}
+
+.createForm {
+    flex: 1;
+}
+
+.codeField {
+    flex: 1.2;
+    display: flex;
+    height: 5vh;
+    border-radius: 6px;
+    align-items: center;
+    padding: 10px;
+    border: 2px solid black;
+    position: relative;
+}
+
+#roomId {
+    position: absolute;
+    border: none;
+    display: flex;
+    width: 95%;
+    height: 4.5vh;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+#roomId:focus-visible {
+    outline: none;
+}
+
+.copySvg {
+    position: absolute;
+    right: 0px;
+    cursor: pointer;
+    height: 4vh;
+    width: 40px;
+}
+
+.tooltip {
+    position: absolute;
+    width: 80px;
+    height: 4vh;
+    font-size: 14px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    right: 40px;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s;
+
+}
+
+.tooltip::after {
+    content: "";
+    position: absolute;
+    top: 5px;
+    right: -10px;
+    margin-left: 13px;
+    margin-top: 3px;
+    border: 6px solid;
+    border-color: transparent transparent transparent black;
+}
+
+.copySvg:hover+.tooltip {
+    visibility: visible;
+    opacity: 1;
+}

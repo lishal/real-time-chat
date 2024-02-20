@@ -10,17 +10,3 @@
     justify-content: flex-start !important;
     gap: 15px;
 }
-
-.joinButtons>button {
-    height: 50px;
-    width: 200px;
-    background-color: black;
-    color: white;
-    cursor: pointer;
-    font-size: 19px;
-
-}
-
-.joinButtons>button:hover {
-    background-color: rgb(61, 58, 58);
-}

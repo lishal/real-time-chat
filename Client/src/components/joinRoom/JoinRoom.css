@@ -1,0 +1,14 @@
+.joinRoom-container {
+    height: 90vh;
+    width: 90%;
+    margin-inline: auto;
+    margin-block: 1%;
+}
+
+.joinForm {
+    flex: 1;
+}
+
+.inputForm {
+    gap: 20px;
+}

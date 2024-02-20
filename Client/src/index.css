@@ -19,6 +19,53 @@ body {
 }
 
 .flex-center {
+  display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.fieldContainer {
+  width: 50%;
+  gap: 10px;
+}
+
+.fieldDesc {
+  font-size: 1.7em;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex: 1;
+}
+
+.fieldInp {
+  height: 5vh;
+  border-radius: 6px;
+  font-size: 20px;
+  padding: 10px;
+  flex: 1.2
+}
+
+.lianBtn {
+  height: 50px;
+  width: 200px;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+  font-size: 19px;
+  text-decoration: none;
+}
+
+.lianBtn:hover {
+  background-color: rgb(61, 58, 58);
+}
+
+@media (max-width:1344px) {
+  .fieldContainer {
+    flex-direction: column !important;
+    width: 80%;
+  }
+
+  .fieldDesc {
+    justify-content: flex-start;
+  }
 }
