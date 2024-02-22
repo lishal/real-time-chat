@@ -1,0 +1,17 @@
+[
+    {
+        "owner": "Room1",
+        "roomId": "7466-4351-4078-4192",
+        "roomName": "Lishal"
+    },
+    {
+        "owner": "Demo2",
+        "roomId": "1768-3001-6421-3597",
+        "roomName": "Lishal"
+    },
+    {
+        "owner": "Lishal",
+        "roomId": "8206-3465-9460-4206",
+        "roomName": "Demo Room"
+    }
+]
