@@ -1,0 +1,24 @@
+.pageNotFound-container {
+    height: 90vh;
+    width: 90%;
+    margin-inline: auto;
+    margin-block: 1%;
+}
+
+.pageNotFound-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 30px;
+    font-style: italic;
+    margin-block-start: 50px;
+    font-weight: bold;
+    gap: 30px;
+}
+
+.joinButtons {
+    flex: 1;
+    justify-content: flex-start !important;
+    gap: 15px;
+}
