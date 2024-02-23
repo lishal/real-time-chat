@@ -1,80 +1,13 @@
 [
-    {
-        "roomId": "0000-0000-0000-0000",
-        "owner": "Lishal",
-        "activeUsers": [
-            {
-                "userId": "ITvyYA04NEUSMdQfAAAB",
-                "userName": "Lishal"
-            },
-            {
-                "userId": "TGat7KX1q0lLdmNVAAAB",
-                "userName": "Lishal Bhari"
-            },
-            {
-                "userId": "77YXmlWIZPRQ_CHbAAAD",
-                "userName": "Lishal"
-            },
-            {
-                "userId": "ARKYwVQGSHauGvthAAAD",
-                "userName": "asdasd"
-            },
-            {
-                "userId": "fc802nBHbm-dAz2pAAAJ",
-                "userName": "Annna"
-            },
-            {
-                "userId": "6TCOtdzIdWcuSW16AAAB",
-                "userName": "demo"
-            },
-            {
-                "userId": "9mPi4y-Gtw5ZZkzJAAAH",
-                "userName": "Demo"
-            },
-            {
-                "userId": "DB-DFT7uSpBKE_tRAAAL",
-                "userName": "demo"
-            },
-            {
-                "userId": "2qYXvJKi9lJmaL_EAAAP",
-                "userName": "Lishal"
-            },
-            {
-                "userId": "ZLozp_e6QxbxNnBHAAAh",
-                "userName": "Lishal"
-            },
-            {
-                "userId": "KClvLr49LEPP3-BxAAAn",
-                "userName": "demo"
-            },
-            {
-                "userId": "MoDNEHLLktiAmaRcAAAp",
-                "userName": "demo"
-            },
-            {
-                "userId": "Xb2ZKSHsSEZjAnacAAAz",
-                "userName": "demo"
-            },
-            {
-                "userId": "cwCXEruUB-24Q0GAAAA1",
-                "userName": "demo"
-            },
-            {
-                "userId": "zZVo88ZwfKtALULjAAA3",
-                "userName": "demo"
-            },
-            {
-                "userId": "obrHx2328U0nG7OTAAA5",
-                "userName": "demo"
-            },
-            {
-                "userId": "teuAqdTgfs73JzOpAAA7",
-                "userName": "demo"
-            },
-            {
-                "userId": "sPE_-2os8uZhD86-AAAt",
-                "userName": "asdasdasd"
-            }
-        ]
-    }
+     {
+          "roomId": "8279-1092-2430-1722",
+          "owner": "Lishal Bhari",
+          "roomName": "Demo Room",
+          "activeUsers": [
+               {
+                    "userId": "-ArNGR1EdPEn1ksTAAAB",
+                    "userName": "Lishal Bhari"
+               }
+          ]
+     }
 ]

@@ -30,39 +30,89 @@ io.on("connection", (socket) => {
   const socketid = socket.id;
   socket.on("newUser", (clientData) => {
     // Add Active user in JSON
-
     fs.readFile("userInRoom.json", "utf8", (err, data) => {
       if (err) {
         console.error(err);
         return;
       }
-      let userData = JSON.parse(data);
-      if (clientData != null) {
-        const roomIndex = userData.findIndex(
-          (room) => room.roomId === clientData.roomId
-        );
-        if (roomIndex !== -1) {
-          const room = userData[roomIndex];
-          if (!room.activeUsers.some((user) => user.userId === socketid)) {
-            room.activeUsers.push({
-              userId: socket.id,
-              userName: clientData.name,
-            });
-            fs.writeFile(
-              "userInRoom.json",
-              JSON.stringify(userData, null, 4),
-              "utf8",
-              (err) => {
-                if (err) {
-                  console.error(err);
-                  return;
-                }
-              }
+      try {
+        if (data != "") {
+          userInRoomData = JSON.parse(data);
+          if (clientData != null) {
+            const roomIndex = userInRoomData.findIndex(
+              (room) => room.roomId === clientData.roomId
             );
+            if (roomIndex !== -1) {
+              const room = userInRoomData[roomIndex];
+              if (!room.activeUsers.some((user) => user.userId === socketid)) {
+                room.activeUsers.push({
+                  userId: socket.id,
+                  userName: clientData.name || clientData.owner,
+                });
+                fs.writeFile(
+                  "userInRoom.json",
+                  JSON.stringify(userInRoomData, null, 4),
+                  "utf8",
+                  (err) => {
+                    if (err) {
+                      console.error(err);
+                      return;
+                    }
+                  }
+                );
+              }
+            } else {
+              const data = {
+                roomId: clientData.roomId,
+                owner: clientData.owner,
+                roomName: clientData.roomName,
+                activeUsers: [
+                  {
+                    userId: socketid,
+                    userName: clientData.owner,
+                  },
+                ],
+              };
+              userInRoomData.push(data);
+              fs.writeFile(
+                "userInRoom.json",
+                JSON.stringify(userInRoomData, null, 5),
+                "utf8",
+                (err) => {
+                  if (err) {
+                    console.error(err);
+                    return;
+                  }
+                }
+              );
+            }
           }
         } else {
-          console.log("Room xinna hai tyo that means create garxa hit hunxa");
+          const data = {
+            roomId: clientData.roomId,
+            owner: clientData.owner || "Bot",
+            roomName: clientData.roomName || "Auto created Room",
+            activeUsers: [
+              {
+                userId: socketid,
+                userName: clientData.owner || clientData.name,
+              },
+            ],
+          };
+          fs.writeFile(
+            "userInRoom.json",
+            JSON.stringify([data], null, 5),
+            "utf8",
+            (err) => {
+              if (err) {
+                console.error(err);
+                return;
+              }
+            }
+          );
         }
+      } catch (err) {
+        console.error("Error parsing JSON data:", err);
       }
     });
 
@@ -81,33 +131,38 @@ io.on("connection", (socket) => {
         console.error(err);
         return;
       }
-      const userData = JSON.parse(data);
-      const roomActiveMembers = userData.map((room) => ({
-        ...room,
-        activeUsers: room.activeUsers.filter(
-          (user) => user.userId !== socketid
-        ),
-      }));
-      fs.writeFile(
-        "userInRoom.json",
-        JSON.stringify(roomActiveMembers, null, 4),
-        "utf8",
-        (err) => {
-          if (err) {
-            console.error(err);
-            return;
-          }
+      try {
+        if (data != "") {
+          const userData = JSON.parse(data);
+          const roomActiveMembers = userData.map((room) => ({
+            ...room,
+            activeUsers: room.activeUsers.filter(
+              (user) => user.userId !== socketid
+            ),
+          }));
+          fs.writeFile(
+            "userInRoom.json",
+            JSON.stringify(roomActiveMembers, null, 4),
+            "utf8",
+            (err) => {
+              if (err) {
+                console.error(err);
+                return;
+              }
+            }
+          );
         }
-      );
+      } catch (err) {
+        console.error("Error parsing JSON data:", err);
+      }
     });
-    socket.broadcast.emit("disconnectedUser", users[socket.id]);
-    delete users[socket.id];
+    //   socket.broadcast.emit("disconnectedUser", users[socket.id]);
+    //   delete users[socket.id];
   });
 });
 
 app.post("/api/joinRoom", (req, res) => {
   const clientData = req.body;
-  console.log(clientData);
   fs.readFile("userInRoom.json", "utf8", (err, data) => {
     if (err) {
       console.error(err);
@@ -135,51 +190,26 @@ app.post("/api/joinRoom", (req, res) => {
 
 app.post("/api/createRoom", (req, res) => {
   const roomData = req.body;
-  fs.readFile("activeRoom.json", "utf8", (err, data) => {
+  fs.readFile("userInRoom.json", "utf8", (err, data) => {
     if (err) {
       console.error(err);
       return;
     }
     if (data != "") {
       try {
-        if (data != "") {
-          activeRoomData = JSON.parse(data);
-          const filteredRoomCode = activeRoomData.filter(
-            (element) => element.roomId === roomData.roomId
-          );
-          if (filteredRoomCode.length != 0) {
-            res.status(400).json({ error: "Room already exist!" });
-          } else {
-            activeRoomData.push(roomData);
-            fs.writeFile(
-              "activeRoom.json",
-              JSON.stringify(activeRoomData, null, 4),
-              "utf8",
-              (err) => {
-                if (err) {
-                  console.error(err);
-                  return;
-                }
-              }
-            );
-            res.json(roomData);
-          }
+        userinroomData = JSON.parse(data);
+        const filteredRoomCode = userinroomData.filter(
+          (element) => element.roomId === roomData.roomId
+        );
+        if (filteredRoomCode.length != 0) {
+          res.status(400).json({ error: "Room already exist!" });
+        } else {
+          res.json(roomData);
         }
       } catch (err) {
         console.error("Error parsing JSON data:", err);
       }
     } else {
-      fs.writeFile(
-        "activeRoom.json",
-        JSON.stringify([roomData], null, 4),
-        "utf8",
-        (err) => {
-          if (err) {
-            console.error(err);
-            return;
-          }
-        }
-      );
       res.json(roomData);
     }
   });
