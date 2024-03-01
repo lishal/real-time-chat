@@ -43,7 +43,7 @@
 }
 
 .tooltip {
-    position: absolute;
+    position: absolute !important;
     width: 80px;
     height: 4vh;
     font-size: 14px;
@@ -51,18 +51,18 @@
     color: #fff;
     text-align: center;
     border-radius: 6px;
-    right: 40px;
     visibility: hidden;
     opacity: 0;
     transition: opacity 0.3s;
+    right: 40px !important;
 
 }
 
 .tooltip::after {
+    top: 5px !important;
+    right: -10px !important;
     content: "";
     position: absolute;
-    top: 5px;
-    right: -10px;
     margin-left: 13px;
     margin-top: 3px;
     border: 6px solid;

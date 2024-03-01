@@ -17,9 +17,6 @@ function CreateRoom() {
     const handleNameChange = (event) => {
         setName(event.target.value);
     };
-    const handleRoomcodeChange = (event) => {
-        setRoomcode(event.target.value);
-    };
     const handleRoomnameChange = (event) => {
         setRoomname(event.target.value);
     };
@@ -49,10 +46,12 @@ function CreateRoom() {
             })
         }
         else {
+            setLoading(true)
             const data = {
-                "owner": name,
+                "name": name,
                 "roomId": roomCode,
-                "roomName": roomName
+                "roomName": roomName,
+                "userId": `${Math.floor(Math.random() * 99)}${Date.now()}`
             }
             fetch(`${import.meta.env.LIAN_SERVER_URL}/api/createRoom`, {
                 method: 'POST',

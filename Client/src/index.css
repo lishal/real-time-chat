@@ -59,6 +59,25 @@ body {
   background-color: rgb(61, 58, 58);
 }
 
+::-webkit-scrollbar {
+  width: 5px;
+
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(255, 255, 255);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #8f8d8d;
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(113, 111, 111);
+  cursor: pointer;
+}
+
 @media (max-width:1344px) {
   .fieldContainer {
     flex-direction: column !important;

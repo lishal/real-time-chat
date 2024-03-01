@@ -30,7 +30,8 @@ function JoinRoom() {
             setLoading(true);
             const data = {
                 "name": name,
-                "roomId": roomCode
+                "roomId": roomCode,
+                "userId": `${Math.floor(Math.random() * 99)}${Date.now()}`
             }
             fetch(`${import.meta.env.LIAN_SERVER_URL}/api/joinRoom`, {
                 method: 'POST',

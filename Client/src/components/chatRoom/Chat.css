@@ -1,0 +1,199 @@
+.chatContainer {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+}
+
+.leftsideUserPanel {
+    flex: 1;
+}
+
+.leftsideHeader {
+    margin-inline: 20px;
+    padding-block: 10px;
+    flex-direction: column;
+    gap: 10px;
+    border-bottom: 4px dotted black;
+}
+
+.leftsideHeader-name {
+    font-size: 28px;
+    font-weight: 500;
+}
+
+.leftsideHeader-image {
+    height: 100px;
+    aspect-ratio: 1;
+}
+
+.leftSideContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.roomInfo {
+    display: flex;
+    align-items: center;
+    font-size: 21px;
+    gap: 10px;
+}
+
+.roomInfoTextBox {
+    height: 5vh;
+    border: none;
+    font-size: 18px;
+}
+
+.tooltip-chat {
+    cursor: pointer;
+}
+
+.roomInfoTextBox:focus-visible {
+    outline: none;
+}
+
+.copySvg-chat {
+    position: relative;
+    height: 22px;
+    aspect-ratio: 1;
+    cursor: pointer;
+}
+
+.tooltip-chat {
+    text-wrap: nowrap;
+    position: relative;
+    width: 80px;
+    height: 4vh;
+    font-size: 14px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip-chat::after {
+    position: absolute;
+    content: "";
+    top: 5px;
+    right: 80px;
+    margin-top: 3px;
+    border: 6px solid;
+    border-color: transparent black transparent transparent;
+}
+
+.copySvg-chat:hover+.tooltip-chat {
+    visibility: visible;
+    opacity: 1;
+}
+
+.linebreak {
+    margin-block: 10px;
+    height: 2px;
+    width: 100%;
+    background-color: black;
+    visibility: visible;
+}
+
+.participation-header {
+    display: block;
+    font-size: 26px;
+    text-align: center;
+    margin-block: 10px;
+}
+
+.participation-area {
+    height: 55vh;
+    overflow-y: scroll;
+}
+
+.participation-user {
+    margin: 10px;
+    font-size: 22px;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+}
+
+.online_indicator {
+    height: 15px;
+    aspect-ratio: 1;
+    background-color: rgb(49, 171, 49);
+    border-radius: 100%;
+}
+
+.participation-role {
+    gap: 15px;
+}
+
+.crownsvg {
+    height: 25px;
+    aspect-ratio: 1;
+}
+
+.only_md-device {
+    display: none;
+}
+
+.rightSideChatPanel {
+    flex: 2;
+}
+
+.rightSidePanelContainer {
+    border: 3px solid black;
+    margin: 10px;
+    width: 100%;
+    border-radius: 20px;
+
+}
+
+@media (max-width:1153px) {
+    .chatContainer {
+        flex-direction: column;
+    }
+
+    .leftsideUserPanel {
+        flex: 1.2;
+    }
+
+    .leftsideHeader-image {
+        height: 70px;
+        aspect-ratio: 1;
+    }
+
+    .leftsideHeader-name {
+        font-size: 24px;
+    }
+
+    .linebreak {
+        display: none;
+    }
+
+    .only_md-device {
+        display: block;
+    }
+}
+
+@media (max-width:504px) {
+    .tooltip-chat {
+        position: relative;
+        right: 60px;
+        top: -30px;
+        min-width: 80px
+    }
+
+    .tooltip-chat::after {
+        top: 23px;
+        right: 37px;
+        border-color: black transparent transparent transparent;
+    }
+}
+
+@media (max-width:382px) {
+    .roomInfo {
+        font-size: 18px
+    }
+}
