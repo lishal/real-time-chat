@@ -33,7 +33,7 @@ function JoinRoom() {
                 "roomId": roomCode,
                 "userId": `${Math.floor(Math.random() * 99)}${Date.now()}`
             }
-            fetch(`${import.meta.env.LIAN_SERVER_URL}/api/joinRoom`, {
+            fetch(`18.142.128.26/api/joinRoom`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

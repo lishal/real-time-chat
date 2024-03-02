@@ -53,7 +53,7 @@ function CreateRoom() {
                 "roomName": roomName,
                 "userId": `${Math.floor(Math.random() * 99)}${Date.now()}`
             }
-            fetch(`${import.meta.env.LIAN_SERVER_URL}/api/createRoom`, {
+            fetch(`18.142.128.26/api/createRoom`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
