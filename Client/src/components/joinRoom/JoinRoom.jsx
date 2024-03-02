@@ -33,7 +33,7 @@ function JoinRoom() {
                 "roomId": roomCode,
                 "userId": `${Math.floor(Math.random() * 99)}${Date.now()}`
             }
-            fetch(`18.142.128.26/api/joinRoom`, {
+            fetch(`https://lian-bfit.onrender.com/api/joinRoom`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

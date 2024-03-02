@@ -48,7 +48,7 @@ function Chat() {
     const [messages, setMessages] = useState([]);
     const [peoplelist, setPeoplelist] = useState("");
     const textRef = useRef(null);
-    const socket = io.connect(`18.142.128.26`);
+    const socket = io.connect(`https://lian-bfit.onrender.com`);
     useEffect(() => {
         if (state != null) {
             const paramUrl = atob(param.token)

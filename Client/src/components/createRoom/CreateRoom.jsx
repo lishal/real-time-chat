@@ -53,7 +53,7 @@ function CreateRoom() {
                 "roomName": roomName,
                 "userId": `${Math.floor(Math.random() * 99)}${Date.now()}`
             }
-            fetch(`18.142.128.26/api/createRoom`, {
+            fetch(`https://lian-bfit.onrender.com/api/createRoom`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
