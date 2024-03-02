@@ -156,14 +156,52 @@ connectToDatabase()
           "roomId",
           userData.roomId
         );
-        socket.emit("userJoin", {
+        socket.emit("youJoined", {
           peopleList: peopleList,
           roomInfo: roomInfo,
         });
+        socket.broadcast.emit("userJoin", {
+          peopleList: peopleList,
+          roomInfo: roomInfo,
+          user: userData.userName,
+        });
         await cleanData(db);
       });
+      socket.on("sendMessage", async (data) => {
+        // console.log(
+        //   "sender is:",
+        //   data.stateInfo.name,
+        //   " and the message is :",
+        //   data.message
+        // );
+        socket.broadcast.emit("receiveMessage", {
+          message: data.message,
+          roomId: data.stateInfo.roomId,
+          userName: data.stateInfo.name,
+          userId: data.stateInfo.userId,
+        });
+      });
       socket.on("disconnect", async () => {
+        const userInfo = await findDataFromCollection(
+          db,
+          "RoomUserInfo",
+          "socketId",
+          socketId
+        );
         await deleteUser(db, "RoomUserInfo", "socketId", socketId);
+        if (userInfo != null) {
+          const peopleList = await findAllRecords(
+            db,
+            "RoomUserInfo",
+            "roomId",
+            userInfo.roomId
+          );
+          socket.broadcast.emit("leftUser", {
+            peopleList: peopleList,
+            roomId: userInfo.roomId,
+            user: userInfo.userName,
+          });
+        }
       });
     });
   })
