@@ -10,14 +10,14 @@ const app = express();
 const { MongoClient, ServerApiVersion } = require("mongodb");
 app.use(
   cors({
-    origin: "https://lian-chat.vercel.app/",
+    origin: "https://lian-chat.vercel.app",
     methods: ["GET", "POST"],
   })
 );
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: "https://lian-chat.vercel.app/",
+    origin: "https://lian-chat.vercel.app",
     methods: ["GET", "POST"],
   },
 });
