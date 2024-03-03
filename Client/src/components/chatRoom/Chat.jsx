@@ -6,6 +6,7 @@ import lianLogo from "../../assets/lian.png"
 import Loading from '../loading/Loading';
 import copySvg from "../../assets/svg/copySvg.svg"
 import crownSvg from "../../assets/svg/crown.svg"
+import ting from "../../assets/ting.mp4"
 
 function MessageList({ messages }) {
     const messageAreaRef = useRef(null);
@@ -48,6 +49,7 @@ function Chat() {
     const [messages, setMessages] = useState([]);
     const [peoplelist, setPeoplelist] = useState("");
     const textRef = useRef(null);
+    const audio = new Audio(ting);
     const socket = io.connect(`https://lian-bfit.onrender.com`);
     useEffect(() => {
         if (state != null) {
@@ -144,6 +146,9 @@ function Chat() {
             time: currentTime()
         };
         setMessages(prevMessages => [...prevMessages, newMessage]);
+        if (position == "left" || position == "center") {
+            audio.play();
+        }
     };
     return (
         <div className='chatContainer'>
